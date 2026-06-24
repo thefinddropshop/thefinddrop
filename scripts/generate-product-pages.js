@@ -201,13 +201,13 @@ function renderSections(product, validation) {
   if (product.tiktokUrl) {
     heroActions.push(`<span class="shop-badge">Available on TikTok Shop</span>`);
   }
-  heroActions.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p>`);
+  heroActions.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>`);
 
   const finalCta = [];
   if (product.tiktokUrl || product.affiliateUrl) {
     finalCta.push(`<a class="btn btn-dark" href="${escapeHtml(product.tiktokUrl || product.affiliateUrl)}">${escapeHtml(product.ctaText || 'View on TikTok Shop')}</a>`);
   }
-  finalCta.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p>`);
+  finalCta.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>`);
 
   const sections = [];
   if (benefits || features || specifications) {

@@ -7,6 +7,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    (function(){
+      function getBase(){
+        try{
+          var host = location.hostname || '';
+          if (/github\.io$/.test(host)){
+            var parts = location.pathname.split('/');
+            if (parts[1]) return '/' + parts[1] + '/';
+          }
+        }catch(e){}
+        return '/';
+      }
+      var base = getBase();
+      function fixAttr(selector, attr){
+        try{
+          document.querySelectorAll(selector).forEach(function(el){
+            var v = el.getAttribute(attr);
+            if (v && v.indexOf('/') === 0){
+              el.setAttribute(attr, base + v.replace(/^\//, ''));
+            }
+          });
+        }catch(e){}
+      }
+      function run(){
+        fixAttr('a[href^="/"]','href');
+        fixAttr('link[href^="/"]','href');
+        fixAttr('img[src^="/"]','src');
+        fixAttr('script[src^="/"]','src');
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+      else run();
+    })();
+  </script>
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
     :root {
@@ -714,7 +747,7 @@
             <span><strong>Seller:</strong> North & Nest</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop →</a><span class="shop-badge">Available on TikTok Shop</span><p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p>
+            <a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop →</a><span class="shop-badge">Available on TikTok Shop</span><p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>
           </div>
           <aside class="hero-summary" aria-label="Product summary">
             <strong>Premium product summary</strong>
@@ -729,7 +762,7 @@
       </div>
     </section>
 
-    <section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Benefits</div><h2>Why this one stands out.</h2><p>Premium details, thoughtful design, and everyday usefulness in one place.</p></div><div class="benefits-grid"><div class="benefit-card"><h3>Premium finish</h3><p>Made to feel considered and easy to keep in daily use.</p></div><div class="benefit-card"><h3>Thoughtful glow</h3><p>Warm light that feels calm throughout the evening.</p></div><div class="benefit-card"><h3>Easy styling</h3><p>A sculptural silhouette that fits modern interiors without feeling fussy.</p></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Lifestyle Gallery</div><h2>Seen in real routines.</h2><p>Large, calm visuals that feel editorial and easy to trust.</p></div><div class="gallery-grid"><div class="gallery-card gallery-card--feature"><img src="/assets/images/products/stoneware-table-lamp.jpg" alt="Stoneware Table Lamp"><div class="gallery-copy"><strong>Hero moment</strong><span>Primary visual for the product story.</span></div></div><div class="gallery-card"><img src="/assets/images/products/stoneware-table-lamp-1.jpg" alt="Stoneware Table Lamp"><div class="gallery-copy"><strong>Editorial view</strong><span>Additional product detail captured for the story.</span></div></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid"></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">FAQ</div><h2>Questions before you click through.</h2><p>A quick answer layer for curious shoppers and affiliate readers.</p></div><div class="faq-list"><details class="faq-item"><summary>Is it easy to style?</summary><p>Yes. The profile is simple enough to blend into a space without overwhelming it.</p></details></div></div></section><section class="final-cta"><div class="container"><h2>Ready to see it for yourself?</h2><a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop</a><p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Related Products</div><h2>More from Home.</h2><p>Four refined options that complement the same mood and aesthetic.</p></div><div class="related-grid"><article class="related-card"><h3>Woven Accent Tray</h3><p>A soft, textured layer for a calm tabletop.</p></article></div></div></section>
+    <section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Benefits</div><h2>Why this one stands out.</h2><p>Premium details, thoughtful design, and everyday usefulness in one place.</p></div><div class="benefits-grid"><div class="benefit-card"><h3>Premium finish</h3><p>Made to feel considered and easy to keep in daily use.</p></div><div class="benefit-card"><h3>Thoughtful glow</h3><p>Warm light that feels calm throughout the evening.</p></div><div class="benefit-card"><h3>Easy styling</h3><p>A sculptural silhouette that fits modern interiors without feeling fussy.</p></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Lifestyle Gallery</div><h2>Seen in real routines.</h2><p>Large, calm visuals that feel editorial and easy to trust.</p></div><div class="gallery-grid"><div class="gallery-card gallery-card--feature"><img src="/assets/images/products/stoneware-table-lamp.jpg" alt="Stoneware Table Lamp"><div class="gallery-copy"><strong>Hero moment</strong><span>Primary visual for the product story.</span></div></div><div class="gallery-card"><img src="/assets/images/products/stoneware-table-lamp-1.jpg" alt="Stoneware Table Lamp"><div class="gallery-copy"><strong>Editorial view</strong><span>Additional product detail captured for the story.</span></div></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid"></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">FAQ</div><h2>Questions before you click through.</h2><p>A quick answer layer for curious shoppers and affiliate readers.</p></div><div class="faq-list"><details class="faq-item"><summary>Is it easy to style?</summary><p>Yes. The profile is simple enough to blend into a space without overwhelming it.</p></details></div></div></section><section class="final-cta"><div class="container"><h2>Ready to see it for yourself?</h2><a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop</a><p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Related Products</div><h2>More from Home.</h2><p>Four refined options that complement the same mood and aesthetic.</p></div><div class="related-grid"><article class="related-card"><h3>Woven Accent Tray</h3><p>A soft, textured layer for a calm tabletop.</p></article></div></div></section>
     
     
     

@@ -7,6 +7,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    (function(){
+      function getBase(){
+        try{
+          var host = location.hostname || '';
+          if (/github\.io$/.test(host)){
+            var parts = location.pathname.split('/');
+            if (parts[1]) return '/' + parts[1] + '/';
+          }
+        }catch(e){}
+        return '/';
+      }
+      var base = getBase();
+      function fixAttr(selector, attr){
+        try{
+          document.querySelectorAll(selector).forEach(function(el){
+            var v = el.getAttribute(attr);
+            if (v && v.indexOf('/') === 0){
+              el.setAttribute(attr, base + v.replace(/^\//, ''));
+            }
+          });
+        }catch(e){}
+      }
+      function run(){
+        fixAttr('a[href^="/"]','href');
+        fixAttr('link[href^="/"]','href');
+        fixAttr('img[src^="/"]','src');
+        fixAttr('script[src^="/"]','src');
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+      else run();
+    })();
+  </script>
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
     :root {
@@ -714,7 +747,7 @@
             <span><strong>Seller:</strong> Ritual Studio</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop →</a><span class="shop-badge">Available on TikTok Shop</span><p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p>
+            <a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop →</a><span class="shop-badge">Available on TikTok Shop</span><p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>
           </div>
           <aside class="hero-summary" aria-label="Product summary">
             <strong>Premium product summary</strong>
@@ -729,7 +762,7 @@
       </div>
     </section>
 
-    <section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Lifestyle Gallery</div><h2>Seen in real routines.</h2><p>Large, calm visuals that feel editorial and easy to trust.</p></div><div class="gallery-grid"><div class="gallery-card gallery-card--feature"><img src="/assets/images/products/contour-recovery-roller.jpg" alt="Contour Recovery Roller"><div class="gallery-copy"><strong>Hero moment</strong><span>Primary visual for the product story.</span></div></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid"></div></div></section><section class="final-cta"><div class="container"><h2>Ready to see it for yourself?</h2><a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop</a><p class="affiliate-disclosure">As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page.</p></div></section>
+    <section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Lifestyle Gallery</div><h2>Seen in real routines.</h2><p>Large, calm visuals that feel editorial and easy to trust.</p></div><div class="gallery-grid"><div class="gallery-card gallery-card--feature"><img src="/assets/images/products/contour-recovery-roller.jpg" alt="Contour Recovery Roller"><div class="gallery-copy"><strong>Hero moment</strong><span>Primary visual for the product story.</span></div></div></div></div></section><section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid"></div></div></section><section class="final-cta"><div class="container"><h2>Ready to see it for yourself?</h2><a class="btn btn-dark" href="https://www.tiktok.com/">View on TikTok Shop</a><p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p></div></section>
     
     
     

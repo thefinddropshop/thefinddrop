@@ -213,7 +213,7 @@ Examples:
 
 Every generated landing page automatically includes this disclosure beneath the primary CTA and the final CTA:
 
-"As a TikTok Shop affiliate, FindDrop may earn a commission from qualifying purchases made through links on this page."
+"As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page."
 
 Hermes does not need to add this manually. The generator inserts it automatically.
 
