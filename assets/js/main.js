@@ -13,6 +13,30 @@ const state = {
   sort: 'featured'
 };
 
+function resolveSitePath(value) {
+  if (!value) {
+    return value;
+  }
+
+  if (/^(https?:)?\/\//i.test(value) || value.indexOf('mailto:') === 0 || value.indexOf('tel:') === 0 || value.indexOf('#') === 0 || value.indexOf('data:') === 0) {
+    return value;
+  }
+
+  if (typeof window.__FINDDROP_TO_BASE === 'function') {
+    return window.__FINDDROP_TO_BASE(value);
+  }
+
+  return value;
+}
+
+function getProductsDataUrl() {
+  return resolveSitePath('/data/products.json');
+}
+
+function getProductLink(product) {
+  return resolveSitePath(product.tiktokURL || product.tiktokUrl || product.affiliateUrl || `/p/${product.slug}/`);
+}
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, '&amp;')
@@ -34,7 +58,7 @@ function getPageContext() {
 }
 
 async function loadProducts() {
-  const response = await fetch('/data/products.json', { cache: 'no-store' });
+  const response = await fetch(getProductsDataUrl(), { cache: 'no-store' });
   if (!response.ok) {
     throw new Error('Unable to load product data');
   }
@@ -44,10 +68,14 @@ async function loadProducts() {
 function createProductCard(product) {
   const article = document.createElement('article');
   article.className = 'product-card';
+  const productHref = getProductLink(product);
+  const heroImage = resolveSitePath(product.thumbnail || product.heroImage);
+  const heroImageLarge = resolveSitePath(product.heroImage || product.thumbnail);
+
   article.innerHTML = `
-    <a class="product-card-link" href="${product.tiktokURL || `/p/${product.slug}/`}" aria-label="View ${escapeHtml(product.title)}">
+    <a class="product-card-link" href="${productHref}" aria-label="View ${escapeHtml(product.title)}">
       <div class="product-media">
-        <img src="${product.thumbnail || product.heroImage}" alt="${escapeHtml(product.title)}" loading="lazy" decoding="async" srcset="${product.thumbnail || product.heroImage} 600w, ${product.heroImage || product.thumbnail} 1200w" sizes="(max-width: 720px) 100vw, (max-width: 1180px) 50vw, 25vw">
+        <img src="${heroImage}" alt="${escapeHtml(product.title)}" loading="lazy" decoding="async" srcset="${heroImage} 600w, ${heroImageLarge} 1200w" sizes="(max-width: 720px) 100vw, (max-width: 1180px) 50vw, 25vw">
       </div>
       <div class="product-info">
         <div class="product-meta">${escapeHtml(product.category)} • ${product.featured ? 'Featured' : 'New'}</div>
@@ -215,7 +243,7 @@ function renderSearchResults(products, resultsContainer) {
 
   matches.forEach((product) => {
     const link = document.createElement('a');
-    link.href = product.tiktokURL || `/p/${product.slug}/`;
+    link.href = getProductLink(product);
     link.className = 'search-result-item';
     link.innerHTML = `<strong>${escapeHtml(product.title)}</strong><span>${escapeHtml(product.category)}</span>`;
     resultsContainer.appendChild(link);

@@ -7,6 +7,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    (function(){
+      function getBase(){
+        try{
+          var host = location.hostname || '';
+          if (/github\.io$/.test(host)){
+            var parts = location.pathname.split('/');
+            if (parts[1]) return '/' + parts[1] + '/';
+          }
+        }catch(e){}
+        return '/';
+      }
+      var base = getBase();
+      function fixAttr(selector, attr){
+        try{
+          document.querySelectorAll(selector).forEach(function(el){
+            var v = el.getAttribute(attr);
+            if (v && v.indexOf('/') === 0){
+              el.setAttribute(attr, base + v.replace(/^\//, ''));
+            }
+          });
+        }catch(e){}
+      }
+      function run(){
+        fixAttr('a[href^="/"]','href');
+        fixAttr('link[href^="/"]','href');
+        fixAttr('img[src^="/"]','src');
+        fixAttr('script[src^="/"]','src');
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+      else run();
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/style.css">
   <style>
     :root {
