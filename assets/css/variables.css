@@ -1,0 +1,15 @@
+:root{
+  --fd-green:#3cff72;
+  --fd-green-dark:#20d858;
+  --fd-black:#0d0d0f;
+  --fd-text:#111114;
+  --fd-muted:#666a73;
+  --fd-soft:#f7f7f4;
+  --fd-card:#ffffff;
+  --fd-border:#e9e6df;
+  --fd-shadow:0 24px 70px rgba(17,17,20,.09);
+  --fd-radius:26px;
+  --fd-radius-sm:18px;
+  --fd-max:1440px;
+  --fd-font:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}

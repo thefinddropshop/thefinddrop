@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "stoneware-table-lamp",
+    "title": "Stoneware Table Lamp",
+    "category": "Home",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/stoneware-table-lamp/index.html",
+    "heroImage": "/assets/images/products/stoneware-table-lamp.jpg",
+    "galleryCount": 1,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "travel-tech-tote",
+    "title": "Travel Tech Tote",
+    "category": "Tech",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/travel-tech-tote/index.html",
+    "heroImage": "/assets/images/products/travel-tech-tote.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "waffle-linen-robe",
+    "title": "Waffle Linen Robe",
+    "category": "Bath",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/waffle-linen-robe/index.html",
+    "heroImage": "/assets/images/products/waffle-linen-robe.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "contour-recovery-roller",
+    "title": "Contour Recovery Roller",
+    "category": "Wellness",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/contour-recovery-roller/index.html",
+    "heroImage": "/assets/images/products/contour-recovery-roller.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "ceramic-morning-mug",
+    "title": "Ceramic Morning Mug",
+    "category": "Kitchen",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/ceramic-morning-mug/index.html",
+    "heroImage": "/assets/images/products/ceramic-morning-mug.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "linen-utility-jacket",
+    "title": "Linen Utility Jacket",
+    "category": "Clothing",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/linen-utility-jacket/index.html",
+    "heroImage": "/assets/images/products/linen-utility-jacket.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  },
+  {
+    "slug": "studio-ink-desk-pad",
+    "title": "Studio Ink Desk Pad",
+    "category": "Creative",
+    "generatedDate": "2026-06-24T22:47:40.161Z",
+    "htmlPath": "p/studio-ink-desk-pad/index.html",
+    "heroImage": "/assets/images/products/studio-ink-desk-pad.jpg",
+    "galleryCount": 0,
+    "videoCount": 0,
+    "reviewCount": 0,
+    "status": "generated"
+  }
+]
