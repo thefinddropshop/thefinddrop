@@ -257,59 +257,12 @@
 }
 
 .page-home .category-media {
-  height: 228px;
+  height: 240px;
   position: relative;
-  overflow: hidden;
 }
 
 .page-home .category-media::before,
-.page-home .category-media::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-}
-
-.page-home .category-media::before {
-  inset: 24px 24px auto auto;
-  width: 140px;
-  height: 140px;
-  opacity: 0.56;
-}
-
-.page-home .category-media::after {
-  inset: auto auto 16px 16px;
-  width: 180px;
-  height: 180px;
-  opacity: 0.32;
-}
-
-.page-home .tech-media { background: linear-gradient(135deg, #f4ece2 0%, #dfe7e3 100%); }
-.page-home .tech-media::before { background: linear-gradient(135deg, #fff 0%, #c3d7d0 100%); }
-.page-home .tech-media::after { background: linear-gradient(135deg, #8ea6a0 0%, #fff 100%); }
-
-.page-home .creative-media { background: linear-gradient(135deg, #f6ebdf 0%, #e3ddd1 100%); }
-.page-home .creative-media::before { background: linear-gradient(135deg, #fff 0%, #c6ad8d 100%); }
-.page-home .creative-media::after { background: linear-gradient(135deg, #9d7556 0%, #fff 100%); }
-
-.page-home .home-media { background: linear-gradient(135deg, #efe9dc 0%, #dce8e3 100%); }
-.page-home .home-media::before { background: linear-gradient(135deg, #fff 0%, #b8c7bc 100%); }
-.page-home .home-media::after { background: linear-gradient(135deg, #809284 0%, #fff 100%); }
-
-.page-home .kitchen-media { background: linear-gradient(135deg, #f4e8db 0%, #e4ddd0 100%); }
-.page-home .kitchen-media::before { background: linear-gradient(135deg, #fff 0%, #d4b48d 100%); }
-.page-home .kitchen-media::after { background: linear-gradient(135deg, #a36f3b 0%, #fff 100%); }
-
-.page-home .bath-media { background: linear-gradient(135deg, #f4ece4 0%, #e1e6e2 100%); }
-.page-home .bath-media::before { background: linear-gradient(135deg, #fff 0%, #b8c9bd 100%); }
-.page-home .bath-media::after { background: linear-gradient(135deg, #7a8e86 0%, #fff 100%); }
-
-.page-home .clothing-media { background: linear-gradient(135deg, #f1ece7 0%, #e2e0db 100%); }
-.page-home .clothing-media::before { background: linear-gradient(135deg, #fff 0%, #d2c1ac 100%); }
-.page-home .clothing-media::after { background: linear-gradient(135deg, #8b6b4d 0%, #fff 100%); }
-
-.page-home .wellness-media { background: linear-gradient(135deg, #eff0e9 0%, #dde6e2 100%); }
-.page-home .wellness-media::before { background: linear-gradient(135deg, #fff 0%, #c0d3c7 100%); }
-.page-home .wellness-media::after { background: linear-gradient(135deg, #6a7d74 0%, #fff 100%); }
+.page-home .category-media::after { display: none; }
 
 .page-home .category-card-body {
   padding: 24px 24px 28px;
@@ -338,24 +291,8 @@
   gap: 24px;
 }
 
-.page-home .product-media {
-  height: 260px;
-  position: relative;
-  overflow: hidden;
-}
 
-.page-home .product-media::before {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-}
 
-.page-home .product-media-one { background: linear-gradient(135deg, #ece2d0 0%, #f8ede3 100%); }
-.page-home .product-media-two { background: linear-gradient(135deg, #e6ecea 0%, #f3efe8 100%); }
-.page-home .product-media-three { background: linear-gradient(135deg, #efe6db 0%, #f5ece5 100%); }
-.page-home .product-media-four { background: linear-gradient(135deg, #e7e9e4 0%, #f4efe5 100%); }
 
 .page-home .product-info {
   padding: 24px 24px 28px;
