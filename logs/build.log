@@ -22,3 +22,13 @@
 2026-06-24T23:43:45.659Z | product=linen-utility-jacket | status=generated | html=p/linen-utility-jacket/index.html | warnings=0 | errors=0 | success=true | reason=Generated successfully
 2026-06-24T23:43:45.659Z | product=studio-ink-desk-pad | status=generated | html=p/studio-ink-desk-pad/index.html | warnings=0 | errors=0 | success=true | reason=Generated successfully
 2026-06-24T23:43:45.659Z | product=summary | status=summary | html=- | warnings=0 | errors=0 | success=true | reason=processed=7;generated=7;skipped=0;generationTimeMs=16
+2026-06-24T23:54:14.948Z | product=summary | status=summary | html=- | warnings=0 | errors=0 | success=true | reason=processed=0;generated=0;skipped=0;generationTimeMs=0
+2026-06-24T23:56:26.704Z | product=summary | status=summary | html=- | warnings=0 | errors=0 | success=true | reason=processed=0;generated=0;skipped=0;generationTimeMs=4
+2026-06-25T00:50:46.634Z | product=deployment-test | status=skipped | html=- | warnings=1 | errors=1 | success=false | reason=Missing required field: heroImage | Missing required field: affiliateUrl | affiliateUrl must be a valid http(s) URL | Category does not exist: tech | Hero image is missing or unavailable
+2026-06-25T00:50:46.634Z | product=summary | status=summary | html=- | warnings=1 | errors=1 | success=true | reason=processed=1;generated=0;skipped=1;generationTimeMs=1
+2026-06-25T00:50:51.541Z | product=deployment-test | status=skipped | html=- | warnings=1 | errors=1 | success=false | reason=Missing required field: heroImage | Missing required field: affiliateUrl | affiliateUrl must be a valid http(s) URL | Category does not exist: tech | Hero image is missing or unavailable
+2026-06-25T00:50:51.541Z | product=summary | status=summary | html=- | warnings=1 | errors=1 | success=true | reason=processed=1;generated=0;skipped=1;generationTimeMs=1
+2026-06-25T00:51:14.694Z | product=deployment-test | status=generated | html=p/deployment-test/index.html | warnings=0 | errors=0 | success=true | reason=Generated successfully
+2026-06-25T00:51:14.694Z | product=summary | status=summary | html=- | warnings=0 | errors=0 | success=true | reason=processed=1;generated=1;skipped=0;generationTimeMs=3
+2026-06-25T00:52:43.320Z | product=deployment-test | status=generated | html=p/deployment-test/index.html | warnings=0 | errors=0 | success=true | reason=Generated successfully
+2026-06-25T00:52:43.320Z | product=summary | status=summary | html=- | warnings=0 | errors=0 | success=true | reason=processed=1;generated=1;skipped=0;generationTimeMs=2
