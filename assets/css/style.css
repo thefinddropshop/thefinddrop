@@ -99,8 +99,8 @@
 }
 
 .page-home .hero {
-  min-height: calc(100vh - 96px);
-  padding: 96px 0 112px;
+  min-height: 0;
+  padding: 24px 0;
   background: linear-gradient(120deg, #fcfbf7 0%, #f7efe4 100%);
   position: relative;
   overflow: hidden;
@@ -108,23 +108,14 @@
   align-items: center;
 }
 
-.page-home .hero::before {
-  content: "";
-  position: absolute;
-  inset: auto -120px -120px auto;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, 0) 70%);
-  pointer-events: none;
-}
+.page-home .hero::before { display: none; }
 
 .page-home .hero-inner {
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
   gap: 72px;
   align-items: center;
-  min-height: 78vh;
+  min-height: 0;
 }
 
 .page-home .eyebrow {
