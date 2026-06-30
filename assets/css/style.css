@@ -110,6 +110,29 @@
 
 .page-home .hero::before { display: none; }
 
+/* Category page hero (background image) */
+.hero.hero--image {
+  position: relative;
+  min-height: 360px;
+  max-height: 540px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero.hero--image .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.35) 100%);
+}
+.hero.hero--image .hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
 .page-home .hero-inner {
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
