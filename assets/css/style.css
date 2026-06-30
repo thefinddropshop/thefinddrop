@@ -101,7 +101,7 @@
 .page-home .hero {
   min-height: 0;
   padding: 24px 0;
-  background: linear-gradient(120deg, #fcfbf7 0%, #f7efe4 100%);
+  background: #f4f4f5;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -240,7 +240,7 @@
   aspect-ratio: 4.8 / 6;
   padding: 24px;
   border-radius: 32px;
-  background: linear-gradient(145deg, #f8e7d6 0%, #ece1d2 35%, #fff 100%);
+  background: #fff;
   box-shadow: 0 24px 70px rgba(17, 17, 20, 0.08);
   border: 1px solid rgba(17, 17, 20, 0.06);
   overflow: hidden;
