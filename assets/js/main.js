@@ -72,15 +72,16 @@ function createProductCard(product) {
   const heroImage = resolveSitePath(product.thumbnail || product.heroImage);
   const heroImageLarge = resolveSitePath(product.heroImage || product.thumbnail);
 
+  const subtitle = product.subtitle || product.lead || product.tagline || '';
+
   article.innerHTML = `
     <a class="product-card-link" href="${productHref}" aria-label="View ${escapeHtml(product.title)}">
       <div class="product-media">
         <img src="${heroImage}" alt="${escapeHtml(product.title)}" loading="lazy" decoding="async" srcset="${heroImage} 600w, ${heroImageLarge} 1200w" sizes="(max-width: 720px) 100vw, (max-width: 1180px) 50vw, 25vw">
       </div>
       <div class="product-info">
-        <div class="product-meta">${escapeHtml(product.category)} • ${product.featured ? 'Featured' : 'New'}</div>
         <h3>${escapeHtml(product.title)}</h3>
-        <p>${escapeHtml(product.description)}</p>
+        <p>${escapeHtml(subtitle)}</p>
         <div class="product-footer">
           <div class="rating">★★★★★ ${product.rating}</div>
           <span class="text-link">View Product</span>
