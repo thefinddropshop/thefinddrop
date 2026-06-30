@@ -133,6 +133,37 @@
   width: 100%;
 }
 
+/* Spacing between category hero and section heading */
+.featured-section {
+  padding: 64px 0;
+}
+.featured-section .section-title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+}
+.product-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0 0 28px;
+}
+.product-toolbar .product-filter {
+  display: flex;
+  flex: 1;
+  min-width: 220px;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--fd-muted);
+}
+
 .page-home .hero-inner {
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
