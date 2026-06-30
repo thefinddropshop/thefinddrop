@@ -105,9 +105,31 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
 }
-
+.page-home .hero-raw-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  order: 2;
+}
+.page-home .hero.hero--raw .hero-inner {
+  order: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+  align-items: end;
+  padding: 32px 0 24px;
+  width: 100%;
+}
+.page-home .hero-copy {
+  text-align: left;
+}
+.page-home .hero-raw-inner .hero-copy {
+  margin-left: auto;
+  max-width: 520px;
+}
 .page-home .hero::before { display: none; }
 
 /* Category page hero (background image) */
