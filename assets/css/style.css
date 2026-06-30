@@ -212,6 +212,9 @@
   color: #111114 !important;
   text-shadow: none !important;
 }
+.page-home .hero-copy a.btn {
+  color: #ffffff !important;
+}
 
 /* Spacing between category hero and section heading */
 .featured-section {
