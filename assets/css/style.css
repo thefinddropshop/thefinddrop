@@ -400,19 +400,19 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #ffffff;
+  background: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 40px;
 }
 .product-media img {
-  width: auto;
-  height: auto;
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-  object-position: center;
+  width: auto !important;
+  height: auto !important;
+  max-width: 55% !important;
+  max-height: 55% !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 .product-info {
   padding: 16px 18px 20px;
