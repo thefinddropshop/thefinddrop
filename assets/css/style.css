@@ -154,7 +154,8 @@
 }
 
 /* Homepage hero text: black on light bg */
-.page-home .hero-stack {
+.page-home .hero-stack,
+.page-home .hero-title--light {
   color: #111114;
   font-size: clamp(40px, 5vw, 64px);
   font-weight: 800;
