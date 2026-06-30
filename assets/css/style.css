@@ -188,22 +188,29 @@
 /* Homepage hero text: black on light bg */
 .page-home .hero-stack,
 .page-home .hero-title--light {
-  color: #111114;
+  color: #111114 !important;
   font-size: clamp(40px, 5vw, 64px);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 16px;
+  text-shadow: none !important;
 }
 .page-home .hero-stack span {
   display: block;
   line-height: 1;
 }
 .page-home .hero-desc--light {
-  color: #111114;
+  color: #111114 !important;
   font-size: 18px;
   line-height: 1.5;
   margin: 0;
   max-width: 600px;
+  text-shadow: none !important;
+}
+.page-home .hero-copy,
+.page-home .hero-copy * {
+  color: #111114 !important;
+  text-shadow: none !important;
 }
 
 /* Spacing between category hero and section heading */
