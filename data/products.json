@@ -1,24 +1,946 @@
 [
   {
-    "slug": "deployment-test",
-    "title": "THE FIND DROP Deployment Test",
-    "category": "Tech",
-    "status": "published",
-    "seller": "THE FIND DROP",
-    "affiliateUrl": "https://example.com/deployment-test",
-    "tiktokUrl": "https://www.tiktok.com/",
-    "heroImage": "assets/images/products/hero.webp",
+    "slug": "bathorium-northern-sage-recovery-crush-revitalizing-bath-soak",
+    "asin": "B0BGYY9NY8",
+    "title": "Bathorium Northern Sage Recovery Crush, Revitalizing Bath Soak",
+    "category": "Bath",
+    "rating": "4.8",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/61ylCOhk8PL._SL1500_.jpg",
     "galleryImages": [],
-    "videos": [],
-    "reviewImages": [],
-    "reviewVideos": [],
-    "benefits": [],
-    "features": [],
-    "specifications": [],
-    "faq": [],
-    "relatedProducts": [],
-    "badges": [],
-    "ctaText": "View on TikTok Shop",
-    "featured": false
+    "amazonUrl": "https://www.amazon.com/dp/B0BGYY9NY8?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0BGYY9NY8?tag=therayally-20",
+    "lead": "Relax and rejuvenate with Bathoriums Northern Sage Recovery Crush bath soak",
+    "benefits": [
+      {
+        "title": "Eases",
+        "text": "Eases muscle tension with soothing sage scent"
+      },
+      {
+        "title": "Calms",
+        "text": "Calms stressed mind with earthy aroma"
+      },
+      {
+        "title": "Softens",
+        "text": "Softens skin with natural oils"
+      },
+      {
+        "title": "Reduces",
+        "text": "Reduces fatigue with invigorating blend"
+      }
+    ],
+    "features": [
+      {
+        "title": "Organic",
+        "text": "Organic ingredients for gentle skin care"
+      },
+      {
+        "title": "Aromatic",
+        "text": "Aromatic blend for calming effect"
+      },
+      {
+        "title": "Fe",
+        "text": "FE"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Bath"
+      },
+      {
+        "title": "Rating",
+        "text": "4.8"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0BGYY9NY8"
+      }
+    ]
+  },
+  {
+    "slug": "sojos-trendy-rectangle-polarized-sunglasses-womens-mens",
+    "asin": "B0F93YCXBP",
+    "title": "SOJOS Trendy Rectangle Polarized Sunglasses Womens Mens",
+    "category": "Clothing",
+    "rating": "4.6",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/51SABz-oHAL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0F93YCXBP?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0F93YCXBP?tag=therayally-20",
+    "lead": "Stay stylish and protected with SOJOS trendy rectangle polarized sunglasses for men and women.",
+    "benefits": [
+      {
+        "title": "Polarized",
+        "text": "Polarized lenses reduce glare for crystal clear vision"
+      },
+      {
+        "title": "Trendy",
+        "text": "Trendy rectangle frame adds instant style to any outfit"
+      },
+      {
+        "title": "Comfortable",
+        "text": "Comfortable fit for all-day wear without slipping"
+      },
+      {
+        "title": "Lightweight",
+        "text": "Lightweight design ensures all-day comfort"
+      }
+    ],
+    "features": [
+      {
+        "title": "Polarized",
+        "text": "Polarized lenses block 100% of glare"
+      },
+      {
+        "title": "Rectangular",
+        "text": "Rectangular frame offers modern bold style"
+      },
+      {
+        "title": "Uv",
+        "text": "UV 400 protection guards against harmful rays"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Clothing"
+      },
+      {
+        "title": "Rating",
+        "text": "4.6"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0F93YCXBP"
+      }
+    ]
+  },
+  {
+    "slug": "women-s-cable-knit-long-sleeve-open-front-cardigan-sweater",
+    "asin": "B0BGX8TL1L",
+    "title": "Women's Cable Knit Long Sleeve Open Front Cardigan Sweater",
+    "category": "Clothing",
+    "rating": "4.7",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71U2+3SIgkL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0BGX8TL1L?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0BGX8TL1L?tag=therayally-20",
+    "lead": "Soft cable knit cardigan keeps you warm and stylish all season long",
+    "benefits": [
+      {
+        "title": "Soft",
+        "text": "Soft cable knit fabric feels cozy and breathable all day"
+      },
+      {
+        "title": "Classic",
+        "text": "Classic open front design flatters every body type and occasion"
+      },
+      {
+        "title": "Pair",
+        "text": "Pair with jeans skirts or dresses for effortless all-day style"
+      },
+      {
+        "title": "Sturdy",
+        "text": "Sturdy construction resists wrinkles and maintains shape through wear"
+      }
+    ],
+    "features": [
+      {
+        "title": "Long",
+        "text": "Long sleeve design offers full coverage and warmth"
+      },
+      {
+        "title": "Open",
+        "text": "Open front style adds relaxed modern look"
+      },
+      {
+        "title": "Cable",
+        "text": "Cable knit pattern adds texture and visual interest"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Clothing"
+      },
+      {
+        "title": "Rating",
+        "text": "4.7"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0BGX8TL1L"
+      }
+    ]
+  },
+  {
+    "slug": "dr-teal-s-foaming-bath-with-pure-epsom-salt-shea-butter",
+    "asin": "B0FQL6T3RH",
+    "title": "Dr Teal's Foaming Bath with Pure Epsom Salt, Shea Butter",
+    "category": "Bath",
+    "rating": "4.8",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/81f93Wcn6AL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0FQL6T3RH?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0FQL6T3RH?tag=therayally-20",
+    "lead": "Relax and rejuvenate with Dr Teal's Foaming Bath, infused with Epsom salt and shea butter for soft skin and muscle relief.",
+    "benefits": [
+      {
+        "title": "Relieves",
+        "text": "Relieves muscle aches and tension with Epsom salt."
+      },
+      {
+        "title": "Soothes",
+        "text": "Soothes tired muscles for a calming bath experience."
+      },
+      {
+        "title": "Hydrates",
+        "text": "Hydrates and softens skin with shea butter."
+      },
+      {
+        "title": "Promotes",
+        "text": "Promotes relaxation with a luxurious foaming bath."
+      }
+    ],
+    "features": [
+      {
+        "title": "Contains",
+        "text": "Contains pure Epsom salt for detoxifying benefits."
+      },
+      {
+        "title": "Enriched",
+        "text": "Enriched with shea butter for deep hydration."
+      },
+      {
+        "title": "Foaming",
+        "text": "Foaming formula creates a rich lather."
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Bath"
+      },
+      {
+        "title": "Rating",
+        "text": "4.8"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0FQL6T3RH"
+      }
+    ]
+  },
+  {
+    "slug": "2026-creative-wall-hanging-tool-with-level-picture-hanger-for-frames-12-pcs",
+    "asin": "B0GYKK3MX7",
+    "title": "2026 Creative Wall Hanging Tool with Level, Picture Hanger for Frames, 12 Pcs",
+    "category": "Creative",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71UPnVHwv3L._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GYKK3MX7?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GYKK3MX7?tag=therayally-20",
+    "lead": "Easily hang art and frames with this 12-piece wall hanging tool set",
+    "benefits": [
+      {
+        "title": "Accurate",
+        "text": "Accurate leveling ensures straight hangs every time"
+      },
+      {
+        "title": "Adjustable",
+        "text": "Adjustable hangers fit various frame sizes"
+      },
+      {
+        "title": "Durable",
+        "text": "Durable construction withstands frequent use"
+      },
+      {
+        "title": "Simple",
+        "text": "Simple setup saves time on wall projects"
+      }
+    ],
+    "features": [
+      {
+        "title": "Includes",
+        "text": "Includes built-in level for precise alignment"
+      },
+      {
+        "title": "12-Piece",
+        "text": "12-piece set covers multiple hanging needs"
+      },
+      {
+        "title": "Adjustable",
+        "text": "Adjustable hangers accommodate different frames"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Creative"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GYKK3MX7"
+      }
+    ]
+  },
+  {
+    "slug": "aulctr-2026-new-rainbow-squeeze-art-kit-upgrade-creative",
+    "asin": "B0GX1GF2DT",
+    "title": "AULCTR 2026 New Rainbow Squeeze Art Kit, Upgrade Creative",
+    "category": "Creative",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71-EeBHHDdL._AC_SL1040_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GX1GF2DT?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GX1GF2DT?tag=therayally-20",
+    "lead": "Create vibrant art with the AULCTR 2026 Rainbow Squeeze Kit - perfect for all ages",
+    "benefits": [
+      {
+        "title": "Easy",
+        "text": "Easy to use for all ages"
+      },
+      {
+        "title": "Encourages",
+        "text": "Encourages creativity and imagination"
+      },
+      {
+        "title": "Safe",
+        "text": "Safe non-toxic materials included"
+      },
+      {
+        "title": "Durable",
+        "text": "Durable rainbow colors stay vibrant"
+      }
+    ],
+    "features": [
+      {
+        "title": "Non-Toxic",
+        "text": "Non-toxic water-based paints included"
+      },
+      {
+        "title": "20",
+        "text": "20 vibrant rainbow colors in one kit"
+      },
+      {
+        "title": "Includes",
+        "text": "Includes squeeze bottles and paper"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Creative"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GX1GF2DT"
+      }
+    ]
+  },
+  {
+    "slug": "2026-microblading-eyebrow-pencil-micro-fork-tip-eyebrow-pen",
+    "asin": "B0GQXRN932",
+    "title": "2026 Microblading Eyebrow Pencil, Micro-fork Tip Eyebrow Pen",
+    "category": "General",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71HIoyusoUL._SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GQXRN932?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GQXRN932?tag=therayally-20",
+    "lead": "Draw hair-like strokes for natural, fuller brows in seconds.",
+    "benefits": [
+      {
+        "title": "Micro-Fork",
+        "text": "Micro-fork tip mimics real hair strokes"
+      },
+      {
+        "title": "Waterproof",
+        "text": "Waterproof formula lasts through sweat and rain"
+      },
+      {
+        "title": "Smudge-Proof",
+        "text": "Smudge-proof for clean lines all day"
+      },
+      {
+        "title": "Four",
+        "text": "Four fork tips included for longer use"
+      }
+    ],
+    "features": [
+      {
+        "title": "Micro-Fork",
+        "text": "Micro-fork tip for natural strokes"
+      },
+      {
+        "title": "Waterproof",
+        "text": "Waterproof and smudge-proof formula"
+      },
+      {
+        "title": "Twist",
+        "text": "Twist up design no sharpener needed"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "General"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GQXRN932"
+      }
+    ]
+  },
+  {
+    "slug": "tiktok-2026-la-guia-definitiva-para-crecer-monetizar",
+    "asin": "B0GTHTHTWC",
+    "title": "TikTok 2026: La Guia Definitiva para Crecer, Monetizar",
+    "category": "General",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/61N-zXYpAoL._SL1499_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GTHTHTWC?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GTHTHTWC?tag=therayally-20",
+    "lead": "Master TikTok 2026 with this definitive guide to grow and monetize your account",
+    "benefits": [
+      {
+        "title": "Learn",
+        "text": "Learn proven methods to grow your TikTok audience fast"
+      },
+      {
+        "title": "Discover",
+        "text": "Discover how to monetize your account effectively"
+      },
+      {
+        "title": "Get",
+        "text": "Get creative content ideas that boost engagement"
+      },
+      {
+        "title": "Master",
+        "text": "Master TikTok trends to stay ahead of the competition"
+      }
+    ],
+    "features": [
+      {
+        "title": "Up-To-Date",
+        "text": "Up-to-date 2026 strategies for TikTok growth and monetization"
+      },
+      {
+        "title": "Practical",
+        "text": "Practical examples to boost engagement and follower growth"
+      },
+      {
+        "title": "Expert",
+        "text": "Expert insights on trending content and audience retention"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "General"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GTHTHTWC"
+      }
+    ]
+  },
+  {
+    "slug": "cubesland-back-of-toilet-storage-basket-for-organizing-bathroom",
+    "asin": "B0GKB4NJ6X",
+    "title": "CubesLand Back of Toilet Storage Basket for Organizing Bathroom",
+    "category": "Home",
+    "rating": "4.9",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71CfS-wysiL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GKB4NJ6X?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GKB4NJ6X?tag=therayally-20",
+    "lead": "Keep your bathroom tidy with this storage basket that fits behind the toilet.",
+    "benefits": [
+      {
+        "title": "Sturdy",
+        "text": "Sturdy plastic holds toiletries without bending."
+      },
+      {
+        "title": "Non-Slip",
+        "text": "Non-slip base keeps it secure during use."
+      },
+      {
+        "title": "Easy",
+        "text": "Easy to clean with a wipe or soap."
+      },
+      {
+        "title": "Adjustable",
+        "text": "Adjustable height for easy access."
+      }
+    ],
+    "features": [
+      {
+        "title": "Durable",
+        "text": "Durable material resists cracks and stains."
+      },
+      {
+        "title": "Removable",
+        "text": "Removable lid for quick cleaning."
+      },
+      {
+        "title": "Handles",
+        "text": "Handles on sides for easy lifting."
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Home"
+      },
+      {
+        "title": "Rating",
+        "text": "4.9"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GKB4NJ6X"
+      }
+    ]
+  },
+  {
+    "slug": "cubesland-paper-rope-scalloped-edge-toilet-paper-storage",
+    "asin": "B0DQP9K8CD",
+    "title": "CubesLand Paper Rope Scalloped Edge Toilet Paper Storage",
+    "category": "Home",
+    "rating": "4.9",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71CARg-HKRL._AC_SL1432_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0DQP9K8CD?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0DQP9K8CD?tag=therayally-20",
+    "lead": "Elegant scalloped edge toilet paper storage adds charm and organization to any bathroom",
+    "benefits": [
+      {
+        "title": "Unique",
+        "text": "Unique scalloped edge adds decorative touch to bathroom decor"
+      },
+      {
+        "title": "Keeps",
+        "text": "Keeps toilet paper neatly organized and easily accessible"
+      },
+      {
+        "title": "Durable",
+        "text": "Durable paper rope construction resists tearing and fraying"
+      },
+      {
+        "title": "Space-Saving",
+        "text": "Space-saving design fits standard toilet paper rolls perfectly"
+      }
+    ],
+    "features": [
+      {
+        "title": "Made",
+        "text": "Made from durable paper rope for long-lasting use"
+      },
+      {
+        "title": "Scalloped",
+        "text": "Scalloped edge design adds visual interest and texture"
+      },
+      {
+        "title": "Ideal",
+        "text": "Ideal for holding standard-sized toilet paper rolls"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Home"
+      },
+      {
+        "title": "Rating",
+        "text": "4.9"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0DQP9K8CD"
+      }
+    ]
+  },
+  {
+    "slug": "cosori-9-in-1-turboblaze-air-fryer-6-qt-pfas-free-ceramic-basket",
+    "asin": "B0C33CHG99",
+    "title": "Cosori 9-in-1 TurboBlaze Air Fryer 6 Qt, PFAS-Free Ceramic Basket",
+    "category": "Kitchen",
+    "rating": "4.8",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/81R9sA3IyBL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0C33CHG99?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0C33CHG99?tag=therayally-20",
+    "lead": "Cook crispy meals up to 46 percent faster with nine cooking modes.",
+    "benefits": [
+      {
+        "title": "Six",
+        "text": "Six quart basket feeds a family of four to five"
+      },
+      {
+        "title": "Air",
+        "text": "Air fries with 95 percent less oil than deep frying"
+      },
+      {
+        "title": "Pfas-Free",
+        "text": "PFAS-free ceramic basket is nonstick and safe"
+      },
+      {
+        "title": "Nine",
+        "text": "Nine modes cover air fry, bake, roast, broil, dehydrate"
+      }
+    ],
+    "features": [
+      {
+        "title": "Turboblaze",
+        "text": "TurboBlaze technology for faster cooking"
+      },
+      {
+        "title": "Six",
+        "text": "Six quart square basket fits more food"
+      },
+      {
+        "title": "Pfas-Free",
+        "text": "PFAS-free nonstick ceramic coating"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Kitchen"
+      },
+      {
+        "title": "Rating",
+        "text": "4.8"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0C33CHG99"
+      }
+    ]
+  },
+  {
+    "slug": "hoshanho-7-inch-nakiri-knife-japanese-high-carbon-stainless-steel",
+    "asin": "B0CWH4MF7W",
+    "title": "HOSHANHO 7 Inch Nakiri Knife, Japanese High Carbon Stainless Steel",
+    "category": "Kitchen",
+    "rating": "4.8",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/71Irm0JhXQL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0CWH4MF7W?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0CWH4MF7W?tag=therayally-20",
+    "lead": "Slice through vegetables with a 7 inch Japanese blade that stays sharp.",
+    "benefits": [
+      {
+        "title": "Razor",
+        "text": "Razor sharp edge cuts onions and herbs cleanly"
+      },
+      {
+        "title": "High",
+        "text": "High carbon steel holds its edge longer"
+      },
+      {
+        "title": "Pakkawood",
+        "text": "Pakkawood handle resists moisture and bacteria"
+      },
+      {
+        "title": "Balanced",
+        "text": "Balanced weight reduces hand fatigue"
+      }
+    ],
+    "features": [
+      {
+        "title": "Seven",
+        "text": "Seven inch Nakiri blade for vegetables"
+      },
+      {
+        "title": "High",
+        "text": "High carbon stainless steel core"
+      },
+      {
+        "title": "Ergonomic",
+        "text": "Ergonomic Pakkawood handle"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Kitchen"
+      },
+      {
+        "title": "Rating",
+        "text": "4.8"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0CWH4MF7W"
+      }
+    ]
+  },
+  {
+    "slug": "rotatable-cord-holder-for-nightstand-2026-360-rotatable",
+    "asin": "B0GV7ZN7M9",
+    "title": "Rotatable Cord Holder for Nightstand, 2026 360 Rotatable",
+    "category": "Tech",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/61cCVDE9mbL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GV7ZN7M9?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GV7ZN7M9?tag=therayally-20",
+    "lead": "Rotatable Cord Holder for Nightstand keeps cables tangle-free with 360 rotation.",
+    "benefits": [
+      {
+        "title": "Easily",
+        "text": "Easily access cords from any angle."
+      },
+      {
+        "title": "Modern",
+        "text": "Modern design fits any nightstand decor."
+      },
+      {
+        "title": "Prevents",
+        "text": "Prevents cable tangles for clutter-free setup."
+      },
+      {
+        "title": "Sturdy",
+        "text": "Sturdy build withstands daily use."
+      }
+    ],
+    "features": [
+      {
+        "title": "360",
+        "text": "360 rotation for full access."
+      },
+      {
+        "title": "Adjustable",
+        "text": "Adjustable height for custom fit."
+      },
+      {
+        "title": "Secure",
+        "text": "Secure clamps hold cords firmly."
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Tech"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GV7ZN7M9"
+      }
+    ]
+  },
+  {
+    "slug": "rotatable-cord-holder-for-nightstand-2026-new-360-rotatable-cord-organizer",
+    "asin": "B0GV86T1WN",
+    "title": "Rotatable Cord Holder for Nightstand, 2026 New 360 Rotatable Cord Organizer",
+    "category": "Tech",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/510n5008olL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GV86T1WN?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GV86T1WN?tag=therayally-20",
+    "lead": "Tame the cable mess behind your nightstand with a holder that rotates 360 degrees.",
+    "benefits": [
+      {
+        "title": "Stops",
+        "text": "Stops cords from tangling and falling behind furniture"
+      },
+      {
+        "title": "Rotates",
+        "text": "Rotates a full 360 for easy access to any plug"
+      },
+      {
+        "title": "Grips",
+        "text": "Grips cords firmly without slipping"
+      },
+      {
+        "title": "Slim",
+        "text": "Slim design fits under most nightstands"
+      }
+    ],
+    "features": [
+      {
+        "title": "360",
+        "text": "360 degree rotation for easy access"
+      },
+      {
+        "title": "Non-Slip",
+        "text": "Non-slip silicone grip pads"
+      },
+      {
+        "title": "No",
+        "text": "No tools or drilling required"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Tech"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GV86T1WN"
+      }
+    ]
+  },
+  {
+    "slug": "souyie-smart-watch-fitness-trackers-for-women-men-1-47-inch-touchscreen",
+    "asin": "B0GY43CVG8",
+    "title": "SOUYIE Smart Watch Fitness Trackers for Women Men, 1.47 inch Touchscreen",
+    "category": "Wellness",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/61RU0R4evjL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GY43CVG8?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GY43CVG8?tag=therayally-20",
+    "lead": "Track your health and fitness with the SOUYIE Smart Watch  perfect for men and women.",
+    "benefits": [
+      {
+        "title": "Monitor",
+        "text": "Monitor heart rate and sleep for better health."
+      },
+      {
+        "title": "Track",
+        "text": "Track steps, calories, and workouts easily."
+      },
+      {
+        "title": "Stay",
+        "text": "Stay connected with notifications and calls."
+      },
+      {
+        "title": "Stylish",
+        "text": "Stylish design fits any wrist  men or women."
+      }
+    ],
+    "features": [
+      {
+        "title": "1.47-Inch",
+        "text": "1.47-inch touchscreen for clear viewing."
+      },
+      {
+        "title": "Long",
+        "text": "Long battery life for all-day use."
+      },
+      {
+        "title": "Water",
+        "text": "Water"
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Wellness"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GY43CVG8"
+      }
+    ]
+  },
+  {
+    "slug": "souyie-2026-smart-watch-fitness-trackers-for-women-1-4",
+    "asin": "B0GY3Q27PR",
+    "title": "SOUYIE 2026 Smart Watch Fitness Trackers for Women, 1.4",
+    "category": "Wellness",
+    "rating": "5.0",
+    "seller": "Amazon",
+    "heroImage": "https://m.media-amazon.com/images/I/61FxVv1twqL._AC_SL1500_.jpg",
+    "galleryImages": [],
+    "amazonUrl": "https://www.amazon.com/dp/B0GY3Q27PR?tag=therayally-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0GY3Q27PR?tag=therayally-20",
+    "lead": "Track your health and stay active with a smart watch that fits your lifestyle.",
+    "benefits": [
+      {
+        "title": "Monitor",
+        "text": "Monitor heart rate and sleep quality daily."
+      },
+      {
+        "title": "Get",
+        "text": "Get step counts and calorie burn alerts."
+      },
+      {
+        "title": "Track",
+        "text": "Track menstrual cycle and stress levels."
+      },
+      {
+        "title": "Receive",
+        "text": "Receive notifications for calls and messages."
+      }
+    ],
+    "features": [
+      {
+        "title": "1.4-Inch",
+        "text": "1.4-inch clear touchscreen display."
+      },
+      {
+        "title": "Water-Resistant",
+        "text": "Water-resistant for workouts and rain."
+      },
+      {
+        "title": "Lightweight",
+        "text": "Lightweight design for all-day comfort."
+      }
+    ],
+    "specifications": [
+      {
+        "title": "Category",
+        "text": "Wellness"
+      },
+      {
+        "title": "Rating",
+        "text": "5.0"
+      },
+      {
+        "title": "ASIN",
+        "text": "B0GY3Q27PR"
+      }
+    ]
   }
 ]

@@ -74,7 +74,7 @@ function getExistingCategories() {
     .map((entry) => entry.name)
     .filter((name) => !['assets', 'build', 'data', 'docs', 'logs', 'p', 'scripts', 'templates'].includes(name));
 
-  const categories = new Set(['Home', 'Tech', 'Bath', 'Wellness', 'Kitchen', 'Clothing', 'Creative']);
+  const categories = new Set(['Home', 'Tech', 'Bath', 'Wellness', 'Kitchen', 'Clothing', 'Creative', 'General']);
   for (const name of directories) {
     categories.add(name.charAt(0).toUpperCase() + name.slice(1));
   }
@@ -136,7 +136,18 @@ function validateProduct(product, options = {}) {
   const warnings = [];
   const errors = [];
 
-  const requiredFields = ['slug', 'title', 'category', 'heroImage', 'affiliateUrl'];
+  const requiredFields = ['slug', 'title', 'category', 'heroImage'];
+  // affiliateUrl OR amazonUrl required
+  if (!product.affiliateUrl && !product.amazonUrl) {
+    errors.push('Missing required field: affiliateUrl or amazonUrl');
+  }
+  // Affiliate link must be an Amazon link with your store tag
+  if (product.amazonUrl && !product.amazonUrl.includes('amazon.com')) {
+    errors.push('Hard rule: amazonUrl must be an Amazon link (amazon.com/dp/...?tag=therayally-20)');
+  }
+  if (product.affiliateUrl && !product.affiliateUrl.includes('amazon.com')) {
+    errors.push('Hard rule: affiliateUrl must be an Amazon link (amazon.com/dp/...?tag=therayally-20)');
+  }
   for (const field of requiredFields) {
     const value = product[field];
     if (!value || String(value).trim() === '') {
@@ -151,6 +162,25 @@ function validateProduct(product, options = {}) {
   const categorySet = options.categorySet || getExistingCategories();
   if (product.category && !categorySet.has(String(product.category).trim())) {
     errors.push(`Category does not exist: ${product.category}`);
+  }
+
+  // HARD RULE: Amazon product images MUST use Amazon CDN at render time — no scraping, no local hosting
+  if (product.heroImage && !product.heroImage.startsWith('https://m.media-amazon.com/')) {
+    errors.push(`HARD RULE VIOLATION: heroImage must be Amazon CDN URL starting with https://m.media-amazon.com/ — got: "${product.heroImage.slice(0, 80)}". No scraping. No local hosting. No exceptions.`);
+  }
+  if (Array.isArray(product.galleryImages)) {
+    product.galleryImages.forEach((url, i) => {
+      if (!url.startsWith('https://m.media-amazon.com/')) {
+        errors.push(`HARD RULE VIOLATION: galleryImages[${i}] must be Amazon CDN URL — got: "${url.slice(0, 80)}". No scraping. No local hosting. Get the expanded photos from the Amazon listing and use those URLs directly.`);
+      }
+    });
+  }
+  if (Array.isArray(product.reviewImages)) {
+    product.reviewImages.forEach((url, i) => {
+      if (!url.startsWith('https://m.media-amazon.com/')) {
+        errors.push(`HARD RULE VIOLATION: reviewImages[${i}] must be Amazon CDN URL — got: "${url.slice(0, 80)}". No scraping. No local hosting.`);
+      }
+    });
   }
 
   const heroResult = resolveHeroAsset(product, warnings, options);
@@ -186,50 +216,45 @@ function renderSections(product, validation) {
   const benefits = toArray(product.benefits).map((item) => `<div class="benefit-card"><h3>${escapeHtml(item.title || 'Benefit')}</h3><p>${escapeHtml(item.text || item.description || item)}</p></div>`).join('');
   const features = toArray(product.features).map((item) => `<div class="benefit-card"><h3>${escapeHtml(item.title || 'Feature')}</h3><p>${escapeHtml(item.text || item.description || item)}</p></div>`).join('');
   const specifications = toArray(product.specifications).map((item) => `<div class="benefit-card"><h3>${escapeHtml(item.title || 'Specification')}</h3><p>${escapeHtml(item.text || item.description || item)}</p></div>`).join('');
-  const faqItems = toArray(product.faq).map((item) => `<details class="faq-item"><summary>${escapeHtml(item.question || item.title || 'Question')}</summary><p>${escapeHtml(item.answer || item.text || item)}</p></details>`).join('');
-  const galleryItems = toArray(validation.galleryImages).map((item) => `<div class="gallery-card"><img src="${escapeHtml(item)}" alt="${escapeHtml(product.title)}"><div class="gallery-copy"><strong>Editorial view</strong><span>Additional product detail captured for the story.</span></div></div>`).join('');
+  const faqItems = ''; // FAQ removed 2026-06-30 — was fabricated, not real buyer Q&A
+  const galleryItems = toArray(validation.galleryImages).map((item) => `<div class="gallery-card"><img src="${escapeHtml(item)}" loading="lazy" alt="${escapeHtml(product.title)}"></div>`).join('');
   const reviewImages = toArray(validation.reviewImages).map((item) => `<div class="gallery-card"><img src="${escapeHtml(item)}" alt="${escapeHtml(product.title)} review"><div class="gallery-copy"><strong>Review image</strong><span>Captured from a real buyer moment.</span></div></div>`).join('');
   const reviewVideos = toArray(validation.reviewVideos).map((item) => `<div class="gallery-card"><div class="gallery-copy"><strong>Review video</strong><span>${escapeHtml(item)}</span></div></div>`).join('');
   const videos = toArray(validation.videos).map((item) => `<div class="gallery-card"><div class="gallery-copy"><strong>Video</strong><span>${escapeHtml(item)}</span></div></div>`).join('');
   const badges = toArray(product.badges).map((item) => `<span class="shop-badge">${escapeHtml(item)}</span>`).join('');
-  const relatedProducts = toArray(product.relatedProducts).map((item) => `<article class="related-card"><h3>${escapeHtml(item.title || 'Related product')}</h3><p>${escapeHtml(item.description || item.text || '')}</p></article>`).join('');
+
 
   const heroActions = [];
-  if (product.tiktokUrl || product.affiliateUrl) {
-    heroActions.push(`<a class="btn btn-dark" href="${escapeHtml(product.tiktokUrl || product.affiliateUrl)}">${escapeHtml(product.ctaText || 'View on TikTok Shop')} →</a>`);
+  if (product.amazonUrl || product.affiliateUrl) {
+    const url = product.amazonUrl || product.affiliateUrl;
+    // No button here — it goes below the image instead
   }
-  if (product.tiktokUrl) {
-    heroActions.push(`<span class="shop-badge">Available on TikTok Shop</span>`);
-  }
-  heroActions.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>`);
+  // disclosure is in the hero-visual template now
 
   const finalCta = [];
-  if (product.tiktokUrl || product.affiliateUrl) {
-    finalCta.push(`<a class="btn btn-dark" href="${escapeHtml(product.tiktokUrl || product.affiliateUrl)}">${escapeHtml(product.ctaText || 'View on TikTok Shop')}</a>`);
+  if (product.amazonUrl || product.affiliateUrl) {
+    const url = product.amazonUrl || product.affiliateUrl;
+    finalCta.push(`<a class="btn btn-amazon btn-lg" href="${escapeHtml(url)}" target="_blank" rel="nofollow sponsored">Buy on Amazon</a>`);
   }
-  finalCta.push(`<p class="affiliate-disclosure">As a TikTok Shop affiliate, The Find Drop may earn a commission from qualifying purchases made through links on this page.</p>`);
+  finalCta.push(`<p class="affiliate-disclosure">As an Amazon Associate, I earn from qualifying purchases. Your support helps keep The Find Drop running.</p>`);
+
+  const textReviews = ''; // Reviews removed 2026-06-30 — was fabricated fake content. To add real reviews, copy from Amazon listing and update.
 
   const sections = [];
-  if (benefits || features || specifications) {
-    const cards = [benefits, features, specifications].filter(Boolean).join('');
-    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Benefits</div><h2>Why this one stands out.</h2><p>Premium details, thoughtful design, and everyday usefulness in one place.</p></div><div class="benefits-grid">${cards}</div></div></section>`);
-  }
   if (galleryItems || videos || validation.heroImage) {
     const galleryContent = [galleryItems, videos].filter(Boolean).join('');
-    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Lifestyle Gallery</div><h2>Seen in real routines.</h2><p>Large, calm visuals that feel editorial and easy to trust.</p></div><div class="gallery-grid"><div class="gallery-card gallery-card--feature"><img src="${escapeHtml(validation.heroImage || '')}" alt="${escapeHtml(product.title)}"><div class="gallery-copy"><strong>Hero moment</strong><span>Primary visual for the product story.</span></div></div>${galleryContent}</div></div></section>`);
+    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Gallery</div></div><div class="gallery-grid">${galleryContent}</div></div></section>`);
   }
-  if (reviewImages || reviewVideos || validation.reviewImages || validation.reviewVideos) {
-    const reviews = [reviewImages, reviewVideos].filter(Boolean).join('');
-    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid">${reviews}</div></div></section>`);
+  if (benefits || features || specifications) {
+    const cards = [benefits, features, specifications].filter(Boolean).join('');
+    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Product Details</div></div><div class="benefits-grid">${cards}</div></div></section>`);
+  }
+  if (textReviews || reviewImages || reviewVideos) {
+    const reviewsContent = [textReviews, reviewImages, reviewVideos].filter(Boolean).join('');
+    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Customer Reviews</div><h2>What people are saying.</h2><p>Short, trustworthy notes that keep the experience warm and human.</p></div><div class="review-grid">${reviewsContent}</div></div></section>`);
   }
   if (faqItems) {
     sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">FAQ</div><h2>Questions before you click through.</h2><p>A quick answer layer for curious shoppers and affiliate readers.</p></div><div class="faq-list">${faqItems}</div></div></section>`);
-  }
-  if (finalCta.length) {
-    sections.push(`<section class="final-cta"><div class="container"><h2>Ready to see it for yourself?</h2>${finalCta.join('')}</div></section>`);
-  }
-  if (relatedProducts) {
-    sections.push(`<section class="section"><div class="container"><div class="section-heading"><div class="eyebrow">Related Products</div><h2>More from ${escapeHtml(product.category)}.</h2><p>Four refined options that complement the same mood and aesthetic.</p></div><div class="related-grid">${relatedProducts}</div></div></section>`);
   }
 
   return {
@@ -316,7 +341,7 @@ function generateProductPages(options = {}) {
         PRODUCT_HOOK: product.description,
         RATING: product.rating,
         SELLER: product.seller,
-        TIKTOK_URL: product.tiktokUrl || product.tiktokURL || '',
+        AMAZON_URL: product.amazonUrl || product.affiliateUrl || '',
         HERO_IMAGE: validation.heroImage || '',
         HERO_ACTIONS: rendered.heroActions,
         BENEFITS_SECTION: rendered.sections,
@@ -326,6 +351,9 @@ function generateProductPages(options = {}) {
         FINAL_CTA_SECTION: '',
         RELATED_SECTION: ''
       };
+
+      // Remove any remaining {{TIKTOK_URL}} placeholders (now Amazon-only)
+      page = page.replace(/\{\{TIKTOK_URL\}\}/g, product.amazonUrl || product.affiliateUrl || '#');
 
       Object.entries(replacements).forEach(([key, value]) => {
         page = page.split(`{{${key}}}`).join(String(value));

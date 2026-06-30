@@ -2,7 +2,7 @@
 @import url('components.css');
 
 .page-home {
-  background: linear-gradient(180deg, #fbfaf7 0%, #f7f2e9 100%);
+  background: #f4f4f5;
   color: var(--fd-text);
 }
 
