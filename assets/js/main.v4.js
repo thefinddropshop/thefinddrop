@@ -48,7 +48,7 @@ function getProductTags(product) {
 
 const state = {
   search: '',
-  sort: 'featured',
+  sort: 'newest',
   tag: ''
 };
 
@@ -228,8 +228,6 @@ function getFilteredProducts(products, context) {
     filtered = [...filtered].sort((a, b) => a.title.length - b.title.length);
   } else if (state.sort === 'category') {
     filtered = [...filtered].sort((a, b) => (a.category || '').localeCompare(b.category || '') || a.title.localeCompare(b.title));
-  } else if (state.sort === 'featured') {
-    filtered = [...filtered].sort((a, b) => Number(b.featured) - Number(a.featured));
   }
 
   return filtered;
@@ -458,7 +456,6 @@ function injectCategoryToolbar(context) {
     <label class="product-filter">
       <span>Sort</span>
       <select data-toolbar-sort>
-        <option value="featured">Featured</option>
         <option value="newest">Newest</option>
         <option value="oldest">Oldest</option>
         <option value="az">Name: A-Z</option>
@@ -644,7 +641,7 @@ function bindExistingSearchInputs() {
   const sortSelect = document.querySelector('select[data-sort]');
   if (sortSelect && !sortSelect.dataset.bound) {
     sortSelect.dataset.bound = '1';
-    sortSelect.value = state.sort || 'featured';
+    sortSelect.value = state.sort || 'newest';
     sortSelect.addEventListener('change', (event) => {
       state.sort = event.target.value;
       const context = getPageContext();
