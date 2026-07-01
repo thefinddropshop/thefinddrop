@@ -651,19 +651,21 @@
 
 @media (max-width: 720px) {
   /* Desktop hero pieces: hide only on mobile */
-  .page-home .hero-copy,
-  .page-home .hero-overlay {
+  .page-home .hero.hero--image .hero-copy,
+  .page-home .hero.hero--image .hero-overlay {
     display: none !important;
   }
   .page-home .hero.hero--image {
     background-image: url('../assets/images/headers/home-mobile.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
     min-height: 0 !important;
     max-height: none !important;
     padding: 24px 20px 32px !important;
     background-color: #ffffff !important;
   }
   .mobile-hero-block {
-    display: block;
+    display: block !important;
     width: 100%;
   }
   .mobile-hero-heading {
@@ -684,6 +686,11 @@
     background-repeat: no-repeat;
     border-radius: 18px;
     box-shadow: 0 12px 32px rgba(20, 20, 23, 0.10);
+  }
+  .page-home .mobile-hero-block,
+  .page-home .mobile-hero-image,
+  .page-home .mobile-hero-heading {
+    display: block !important;
   }
 }
 
