@@ -654,12 +654,22 @@
     padding: 0 20px;
   }
 
+  .page-home .hero-copy {
+    text-align: left;
+  }
+
   .page-home .hero-copy h1 {
-    font-size: 42px;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
   }
 
   .page-home .hero-copy p {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 18px;
+    max-width: 100%;
   }
 
   .page-home .hero-actions {
