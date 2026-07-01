@@ -226,6 +226,8 @@ function getFilteredProducts(products, context) {
     filtered = [...filtered].sort((a, b) => Number(a.rating || 0) - Number(b.rating || 0));
   } else if (state.sort === 'title-len') {
     filtered = [...filtered].sort((a, b) => a.title.length - b.title.length);
+  } else if (state.sort === 'category') {
+    filtered = [...filtered].sort((a, b) => (a.category || '').localeCompare(b.category || '') || a.title.localeCompare(b.title));
   } else if (state.sort === 'featured') {
     filtered = [...filtered].sort((a, b) => Number(b.featured) - Number(a.featured));
   }
@@ -457,8 +459,14 @@ function injectCategoryToolbar(context) {
       <span>Sort</span>
       <select data-toolbar-sort>
         <option value="featured">Featured</option>
-        <option value="az">A-Z</option>
         <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="az">Name: A-Z</option>
+        <option value="za">Name: Z-A</option>
+        <option value="rating">Highest rated</option>
+        <option value="rating-low">Lowest rated</option>
+        <option value="title-len">Shortest title</option>
+        <option value="category">By category</option>
       </select>
     </label>
   `;
