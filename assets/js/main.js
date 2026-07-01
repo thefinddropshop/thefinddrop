@@ -34,7 +34,7 @@ function getProductsDataUrl() {
 }
 
 function getProductLink(product) {
-  return resolveSitePath(product.tiktokURL || product.tiktokUrl || product.affiliateUrl || `/p/${product.slug}/`);
+  return resolveSitePath(`/p/${product.slug}/`);
 }
 
 function escapeHtml(value) {
