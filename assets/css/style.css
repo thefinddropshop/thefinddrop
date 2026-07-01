@@ -666,7 +666,7 @@
     margin: 0 !important;
   }
   .page-home .hero.hero--image {
-    background-image: url('../assets/images/headers/home-mobile.jpg') !important;
+    background-image: url('../assets/images/headers/home-mobile-v3.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     min-height: 0 !important;
@@ -695,7 +695,7 @@
   .mobile-hero-image {
     width: 100%;
     aspect-ratio: 16 / 10;
-    background-image: url('../assets/images/headers/home-mobile.jpg');
+    background-image: url('../assets/images/headers/home-mobile-v3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
