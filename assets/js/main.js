@@ -85,6 +85,25 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function polishText(value) {
+  if (!value) return '';
+  let text = String(value).trim();
+  if (!text) return '';
+  // Strip stray AI-style dashes used as connectors in compound sentences:
+  //   " - " (space-dash-space) → " — " is already removed by the data, so we
+  //   just collapse any remaining " - " into ", " and tidy trailing punctuation.
+  text = text.replace(/\s+-\s+/g, ', ');
+  // Collapse multiple spaces
+  text = text.replace(/\s{2,}/g, ' ');
+  // Capitalize first letter
+  text = text.replace(/^([a-z])/, (_, ch) => ch.toUpperCase());
+  // Ensure terminal punctuation
+  if (!/[.!?]$/.test(text)) {
+    text += '.';
+  }
+  return text;
+}
+
 function getPageContext() {
   const path = window.location.pathname.replace(/\/+$/, '');
   const parts = path.split('/').filter(Boolean);
@@ -492,9 +511,9 @@ function applyProductTemplateData(products) {
   const replacements = {
     PRODUCT_TITLE: product.title,
     CATEGORY: product.category,
-    PRODUCT_HOOK: product.description,
+    PRODUCT_HOOK: polishText(product.description || product.lead || product.subtitle),
     RATING: product.rating,
-    SELLER: product.seller,
+    SELLER: product.shipper || product.brand || product.seller || '',
     TIKTOK_URL: product.tiktokURL,
     HERO_IMAGE: product.heroImage,
     GALLERY: buildProductGalleryHtml(product),
@@ -510,6 +529,50 @@ function applyProductTemplateData(products) {
   });
 
   document.body.innerHTML = content;
+
+  injectProductFieldsDOM(product);
+}
+
+function injectProductFieldsDOM(product) {
+  // Update h1 to product title if a data-product-title hook is present
+  const titleEl = document.querySelector('[data-product-title]');
+  if (titleEl && product.title) {
+    titleEl.textContent = product.title;
+  }
+
+  // Update lead paragraph
+  const leadEl = document.querySelector('[data-product-lead]');
+  if (leadEl) {
+    leadEl.textContent = polishText(product.description || product.lead || product.subtitle || '');
+  }
+
+  // Update rating
+  const ratingEl = document.querySelector('[data-product-rating]');
+  if (ratingEl && product.rating) {
+    const stars = '★★★★★'.slice(0, Math.round(Number(product.rating))) + '☆☆☆☆☆'.slice(0, 5 - Math.round(Number(product.rating)));
+    ratingEl.innerHTML = `★★★★★ <span>${Number(product.rating).toFixed(1)}</span>`;
+  }
+
+  // Seller: hide row if no seller/shipper available
+  const sellerEl = document.querySelector('[data-product-seller]');
+  if (sellerEl) {
+    const sellerName = product.shipper || product.brand || product.seller || '';
+    if (sellerName) {
+      sellerEl.textContent = sellerName;
+    } else {
+      const row = sellerEl.closest('span') || sellerEl.parentElement;
+      if (row) row.style.display = 'none';
+    }
+  }
+
+  // Update hero image alt
+  const heroImg = document.querySelector('.hero-visual-card img');
+  if (heroImg && product.title) heroImg.setAttribute('alt', product.title);
+
+  // Update page <title>
+  if (product.title) {
+    document.title = `${product.title} | The Find Drop`;
+  }
 }
 
 function bindExistingSearchInputs() {
