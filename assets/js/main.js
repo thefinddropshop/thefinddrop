@@ -532,6 +532,22 @@ function bindExistingSearchInputs() {
   if (dynamicInput && state.search) {
     dynamicInput.value = state.search;
   }
+
+  // Wire up the static <select data-sort> dropdown that already exists in HTML
+  const sortSelect = document.querySelector('select[data-sort]');
+  if (sortSelect && !sortSelect.dataset.bound) {
+    sortSelect.dataset.bound = '1';
+    sortSelect.value = state.sort || 'featured';
+    sortSelect.addEventListener('change', (event) => {
+      state.sort = event.target.value;
+      const context = getPageContext();
+      if (context.category && document.querySelector('.product-grid')) {
+        renderCategoryProducts(window.__PRODUCTS || [], context);
+      } else {
+        renderHomepageFeatured(window.__PRODUCTS || []);
+      }
+    });
+  }
 }
 
 async function init() {
