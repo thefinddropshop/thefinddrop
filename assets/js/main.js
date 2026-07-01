@@ -631,9 +631,32 @@ function bindExistingSearchInputs() {
   }
 }
 
+function wireMobileSearchToggle() {
+  const toggle = document.querySelector('.mobile-search-toggle');
+  const overlay = document.querySelector('.mobile-search-overlay');
+  const input = overlay ? overlay.querySelector('input') : null;
+  if (!toggle || !overlay) return;
+  if (toggle.dataset.bound) return;
+  toggle.dataset.bound = '1';
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const open = overlay.classList.toggle('is-open');
+    if (open && input) {
+      setTimeout(() => input.focus(), 50);
+    }
+  });
+  // close on outside tap
+  document.addEventListener('click', (e) => {
+    if (!overlay.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
+      overlay.classList.remove('is-open');
+    }
+  });
+}
+
 async function init() {
   injectSearchUI();
   bindExistingSearchInputs();
+  wireMobileSearchToggle();
 
   try {
     const products = await loadProducts();
