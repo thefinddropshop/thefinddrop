@@ -423,8 +423,8 @@ function renderSearchResults(products, resultsContainer) {
   matches.forEach((product) => {
     const link = document.createElement('a');
     link.href = getProductLink(product);
-    link.className = 'search-result-item';
-    link.innerHTML = `<strong>${escapeHtml(product.title)}</strong><span>${escapeHtml(product.category)}</span>`;
+    link.className = 'search-hit';
+    link.innerHTML = `<span class="search-hit-title">${escapeHtml(product.title)}</span><span class="search-hit-cat">${escapeHtml(product.category || '')}</span>`;
     resultsContainer.appendChild(link);
   });
 
