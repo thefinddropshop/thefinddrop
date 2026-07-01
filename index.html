@@ -187,5 +187,28 @@
 </footer>
 <script src="assets/js/base-path.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function killDesktopHero() {
+    if (window.innerWidth <= 720) {
+      document.querySelectorAll('.page-home .hero-raw-img, .page-home .hero-raw-inner, .page-home .hero-copy--left, .page-home .hero-actions').forEach(function(el) {
+        el.style.display = 'none';
+        el.style.visibility = 'hidden';
+        el.style.height = '0';
+        el.style.width = '0';
+        el.style.overflow = 'hidden';
+      });
+      var block = document.querySelector('.mobile-hero-block');
+      if (block) {
+        block.style.display = 'block';
+        block.style.position = 'relative';
+        block.style.zIndex = '5';
+      }
+    }
+  }
+  killDesktopHero();
+  window.addEventListener('resize', killDesktopHero);
+});
+</script>
 </body>
 </html>
