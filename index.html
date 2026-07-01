@@ -32,7 +32,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+<style>
+@media (max-width: 720px) {
+  .hero-raw-inner, .hero-copy--left, .hero-actions, .hero-raw-img { display: none !important; }
+  .page-home .hero.hero--raw { background-color: #ffffff !important; padding: 24px 20px 32px !important; }
+  .mobile-hero-block { display: block !important; }
+  .mobile-hero-heading { font-size: 24px !important; font-weight: 800; line-height: 1.15; margin: 0 0 16px; color: #141417; }
+  .mobile-hero-image { width: 100% !important; aspect-ratio: 16/10 !important; background-image: url('assets/images/headers/home-mobile.jpg') !important; background-size: cover !important; background-position: center !important; border-radius: 18px !important; box-shadow: 0 12px 32px rgba(20,20,23,.10); }
+}
+</style>
 </head>
 <body class="page-home">
 <header class="site-header">
