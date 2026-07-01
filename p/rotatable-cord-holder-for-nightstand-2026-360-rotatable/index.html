@@ -1013,6 +1013,54 @@
   }
 }
 
+
+@media (max-width: 720px) {
+  .product-template .hero-inner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+  .product-template .hero-copy {
+    order: 1 !important;
+    display: contents !important;
+  }
+  .product-template .hero-copy h1 {
+    order: 1 !important;
+    margin: 0 0 8px !important;
+  }
+  .product-template .hero-copy .eyebrow {
+    order: 0 !important;
+  }
+  .product-template .hero-copy .lead,
+  .product-template .hero-copy p,
+  .product-template .hero-copy .hero-meta,
+  .product-template .hero-copy .hero-buy,
+  .product-template .hero-copy .affiliate-disclosure {
+    order: 3 !important;
+    display: block !important;
+  }
+  .product-template .hero-visual {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 8px 0 !important;
+  }
+  .product-template .hero-visual-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+    margin: 0 !important;
+  }
+  .product-template .hero-visual-card img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 65vh !important;
+    min-height: 280px !important;
+    object-fit: contain !important;
+  }
+}
+
 </style>
 </head>
 <body class="product-template">
