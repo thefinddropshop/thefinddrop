@@ -195,8 +195,18 @@ function getFilteredProducts(products, context) {
 
   if (state.sort === 'az') {
     filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
+  } else if (state.sort === 'za') {
+    filtered = [...filtered].sort((a, b) => b.title.localeCompare(a.title));
   } else if (state.sort === 'newest') {
     filtered = [...filtered].sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+  } else if (state.sort === 'oldest') {
+    filtered = [...filtered].sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
+  } else if (state.sort === 'rating') {
+    filtered = [...filtered].sort((a, b) => Number(b.rating || 0) - Number(a.rating || 0));
+  } else if (state.sort === 'rating-low') {
+    filtered = [...filtered].sort((a, b) => Number(a.rating || 0) - Number(b.rating || 0));
+  } else if (state.sort === 'title-len') {
+    filtered = [...filtered].sort((a, b) => a.title.length - b.title.length);
   } else if (state.sort === 'featured') {
     filtered = [...filtered].sort((a, b) => Number(b.featured) - Number(a.featured));
   }
