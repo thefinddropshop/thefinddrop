@@ -8,9 +8,48 @@ const CATEGORY_MAP = {
   wellness: 'Wellness'
 };
 
+// Keyword → Tag rules. First match wins per rule. Add to products.json (`tags`)
+// if you want explicit tags — those override the auto-derived ones.
+const TAG_RULES = [
+  { tag: 'Knives',         match: /\b(knife|knives|cleaver|santoku|paring|chef's knife)\b/i },
+  { tag: 'Cookware',       match: /\b(pan|pot|skillet|wok|air fryer|fryer|griddle|cookware)\b/i },
+  { tag: 'Bakeware',       match: /\b(baking|bake|loaf|cake pan|muffin|cookie sheet)\b/i },
+  { tag: 'Storage',        match: /\b(storage|organizer|basket|holder|caddy|rack)\b/i },
+  { tag: 'Bath Soak',      match: /\b(bath soak|epsom|soak|foam bath|mineral)\b/i },
+  { tag: 'Skincare',       match: /\b(skin|serum|moisturizer|cleanser|retinol|eyebrow|pencil|lotion)\b/i },
+  { tag: 'Wellness',       match: /\b(fitness|tracker|smart watch|wellness|yoga|meditation)\b/i },
+  { tag: 'Outerwear',      match: /\b(jacket|coat|parka|windbreaker|sweater|cardigan|pullover|hoodie)\b/i },
+  { tag: 'Accessories',    match: /\b(sunglasses|hat|cap|scarf|belt|wallet|bag|tote)\b/i },
+  { tag: 'Tech Gear',      match: /\b(cord|usb|charger|cable|adapter|stand|holder|desk)\b/i },
+  { tag: 'Art Supplies',   match: /\b(art|paint|brush|pencil|squeeze|drawing|stamp)\b/i },
+  { tag: 'Wall Decor',     match: /\b(wall hanging|picture hanger|hanger|wall art|frame)\b/i },
+  { tag: 'Pet',            match: /\b(dog|cat|pet)\b/i },
+  { tag: 'Books',          match: /\b(book|guide|manual|novel|read)\b/i }
+];
+
+function getProductTags(product) {
+  const explicit = Array.isArray(product.tags) ? product.tags : [];
+  if (explicit.length) return explicit;
+  const title = product.title || '';
+  const subtitle = product.subtitle || '';
+  const lead = product.lead || '';
+  const haystack = `${title} ${subtitle} ${lead}`;
+  const derived = [];
+  for (const rule of TAG_RULES) {
+    if (rule.match.test(haystack)) {
+      derived.push(rule.tag);
+    }
+  }
+  if (!derived.length) {
+    derived.push(product.category || 'Other');
+  }
+  return derived;
+}
+
 const state = {
   search: '',
-  sort: 'featured'
+  sort: 'featured',
+  tag: ''
 };
 
 function resolveSitePath(value) {
@@ -140,6 +179,10 @@ function getFilteredProducts(products, context) {
     filtered = filtered.filter((product) => product.category.toLowerCase() === context.category.toLowerCase());
   }
 
+  if (state.tag) {
+    filtered = filtered.filter((product) => getProductTags(product).includes(state.tag));
+  }
+
   if (state.search.trim()) {
     const raw = state.search.trim().toLowerCase();
     const tokens = raw.split(/\s+/).filter(Boolean);
@@ -161,11 +204,69 @@ function getFilteredProducts(products, context) {
   return filtered;
 }
 
+function renderTagFilter(container, products, context) {
+  // Only show tag chips on category pages (not product detail / homepage)
+  if (!context || !context.category) {
+    return;
+  }
+
+  // Tags that exist within the current category
+  const tagCounts = new Map();
+  products
+    .filter((product) => product.category && product.category.toLowerCase() === context.category.toLowerCase())
+    .forEach((product) => {
+      getProductTags(product).forEach((tag) => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+      });
+    });
+
+  const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+  // Don't render if no tags or only one tag (it would be a no-op filter)
+  if (sortedTags.length < 2) {
+    const existing = document.querySelector('[data-tag-filter]');
+    if (existing) existing.remove();
+    return;
+  }
+
+  const parent = container.parentElement;
+  let row = parent.querySelector('[data-tag-filter]');
+  if (!row) {
+    row = document.createElement('div');
+    row.className = 'tag-filter';
+    row.setAttribute('data-tag-filter', '');
+    const toolbar = parent.querySelector('.product-toolbar');
+    if (toolbar && toolbar.nextSibling) {
+      parent.insertBefore(row, toolbar.nextSibling);
+    } else {
+      parent.insertBefore(row, container);
+    }
+  }
+
+  const chips = ['<button type="button" class="tag-chip" data-tag-value="">All</button>']
+    .concat(
+      sortedTags.map(([tag, count]) =>
+        `<button type="button" class="tag-chip${state.tag === tag ? ' is-active' : ''}" data-tag-value="${escapeHtml(tag)}">${escapeHtml(tag)} <span class="tag-chip-count">${count}</span></button>`
+      )
+    )
+    .join('');
+  row.innerHTML = chips;
+
+  row.querySelectorAll('[data-tag-value]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      state.tag = chip.dataset.tagValue;
+      renderCategoryProducts(window.__PRODUCTS || [], context);
+    });
+  });
+}
+
 function renderCategoryProducts(products, context) {
   const container = document.querySelector('.product-grid');
   if (!container) {
     return;
   }
+
+  renderTagFilter(container, products, context);
 
   const count = container.dataset.count ? Number(container.dataset.count) : 0;
   let filtered = getFilteredProducts(products, context);
