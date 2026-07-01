@@ -654,8 +654,16 @@
   .page-home .hero.hero--image .hero-copy,
   .page-home .hero.hero--image .hero-overlay,
   .page-home .hero.hero--raw .hero-copy,
-  .page-home .hero.hero--raw .hero-raw-img {
+  .page-home .hero.hero--raw .hero-raw-img,
+  .page-home .hero.hero--raw .hero-actions,
+  .page-home .hero.hero--raw .hero-text-left,
+  .page-home .hero.hero--raw .hero-raw-inner {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .page-home .hero.hero--image {
     background-image: url('../assets/images/headers/home-mobile.jpg') !important;
