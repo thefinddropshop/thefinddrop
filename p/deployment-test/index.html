@@ -697,7 +697,62 @@
       .product-template .sticky-cta-inner {
         padding: 10px 12px;
       }
-    }
+    
+      .product-template .hero-visual-card {
+        max-width: 100%;
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .product-template .hero-visual-card img {
+        max-height: 70vh;
+        min-height: 320px;
+      }
+
+      .product-template .sticky-cta {
+        left: 12px;
+        right: 12px;
+        transform: none;
+        width: auto;
+        max-width: calc(100vw - 24px);
+        bottom: 10px;
+      }
+
+      .product-template .sticky-cta.is-sticky-visible {
+        transform: none;
+      }
+
+      .product-template .sticky-cta-pill,
+      .product-template .sticky-cta-inner {
+        width: 100%;
+        max-width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 8px 8px 14px;
+      }
+
+      .product-template .sticky-cta-copy {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .product-template .sticky-cta-copy strong {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .product-template .sticky-cta-copy span {
+        font-size: 10px;
+      }
+
+      .product-template .sticky-cta-pill .btn-amazon {
+        font-size: 12px;
+        padding: 8px 12px;
+        flex-shrink: 0;
+      }
+}
 
     @media (prefers-reduced-motion: reduce) {
       .product-template .reveal,
