@@ -335,8 +335,41 @@ function applyProductTemplateData(products) {
   document.body.innerHTML = content;
 }
 
+function bindExistingSearchInputs() {
+  const inputs = document.querySelectorAll('[data-search-input]');
+  inputs.forEach((input) => {
+    input.addEventListener('input', (event) => {
+      state.search = event.target.value;
+      const context = getPageContext();
+      if (context.category && document.querySelector('.product-grid')) {
+        renderCategoryProducts(window.__PRODUCTS || [], context);
+      }
+      renderHomepageFeatured(window.__PRODUCTS || []);
+    });
+    const form = input.closest('form') || input.parentElement;
+    if (form && form.tagName === 'FORM') {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        state.search = input.value;
+        const context = getPageContext();
+        if (context.category && document.querySelector('.product-grid')) {
+          renderCategoryProducts(window.__PRODUCTS || [], context);
+        }
+        renderHomepageFeatured(window.__PRODUCTS || []);
+      });
+    }
+  });
+
+  // Pre-fill the dynamic header search (if JS created one) with current state
+  const dynamicInput = document.querySelector('[data-site-search] input');
+  if (dynamicInput && state.search) {
+    dynamicInput.value = state.search;
+  }
+}
+
 async function init() {
   injectSearchUI();
+  bindExistingSearchInputs();
 
   try {
     const products = await loadProducts();
