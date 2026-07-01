@@ -460,6 +460,24 @@ function injectCategoryToolbar(context) {
   });
 }
 
+function buildProductGalleryHtml(product) {
+  const hero = product.heroImage || product.thumbnail || '';
+  // If the product has explicit gallery images, use them; otherwise reuse the hero.
+  const sources = (Array.isArray(product.gallery) && product.gallery.length)
+    ? product.gallery
+    : (hero ? [hero, hero, hero, hero] : []);
+  if (!sources.length) return '';
+
+  return sources.map((src, i) => {
+    const isFeature = i === 0;
+    const subCopy = isFeature ? escapeHtml(product.category || '') : '';
+    return `<div class="gallery-card${isFeature ? ' gallery-card--feature' : ''}">
+      <img src="${escapeHtml(src)}" alt="${escapeHtml(product.title || '')} ${i + 1}" loading="lazy" />
+      ${isFeature ? `<div class="gallery-copy"><strong>${escapeHtml(product.title || '')}</strong><span>${subCopy}</span></div>` : ''}
+    </div>`;
+  }).join('');
+}
+
 function applyProductTemplateData(products) {
   if (!document.body.classList.contains('product-template')) {
     return;
@@ -479,7 +497,7 @@ function applyProductTemplateData(products) {
     SELLER: product.seller,
     TIKTOK_URL: product.tiktokURL,
     HERO_IMAGE: product.heroImage,
-    GALLERY: '',
+    GALLERY: buildProductGalleryHtml(product),
     BENEFITS: '<div class="benefit-card"><h3>Premium finish</h3><p>Made to feel considered and easy to keep in daily use.</p></div><div class="benefit-card"><h3>Everyday utility</h3><p>Simple to use and easy to recommend to friends.</p></div><div class="benefit-card"><h3>Thoughtful packaging</h3><p>Clean presentation that feels polished from first glance.</p></div><div class="benefit-card"><h3>Trusted by our audience</h3><p>A dependable choice for readers looking for something worth sharing.</p></div>',
     REVIEWS: '',
     FAQ: ''
