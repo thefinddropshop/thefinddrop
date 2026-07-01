@@ -92,6 +92,47 @@ function createProductCard(product) {
   return article;
 }
 
+function scoreProductMatch(product, tokens) {
+  const title = (product.title || '').toLowerCase();
+  const category = (product.category || '').toLowerCase();
+  const subtitle = (product.subtitle || '').toLowerCase();
+  const lead = (product.lead || '').toLowerCase();
+  const description = (product.description || '').toLowerCase();
+  const slug = (product.slug || '').toLowerCase();
+  let benefitsText = '';
+  if (Array.isArray(product.benefits)) {
+    benefitsText = product.benefits.map((b) => `${b.title || ''} ${b.text || ''}`).join(' ').toLowerCase();
+  }
+
+  // Every token must appear as a word-prefix in at least one searchable field.
+  const fields = [title, category, subtitle, lead, description, slug, benefitsText];
+  for (const token of tokens) {
+    if (!fields.some((field) => new RegExp('\\b' + token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(field))) {
+      return -1; // not a match
+    }
+  }
+
+  // Score: lower is better
+  let score = 9;
+  tokens.forEach((token) => {
+    if (title.startsWith(token)) score = Math.min(score, 0);
+    else if (new RegExp('\\b' + token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(title)) score = Math.min(score, 1);
+    if (category.startsWith(token)) score = Math.min(score, 0);
+    else if (fieldContainsWord(category, token)) score = Math.min(score, 2);
+    if (fieldContainsWord(subtitle, token)) score = Math.min(score, 2);
+    if (fieldContainsWord(lead, token)) score = Math.min(score, 3);
+    if (fieldContainsWord(description, token)) score = Math.min(score, 4);
+    if (fieldContainsWord(slug, token)) score = Math.min(score, 1);
+  });
+  return score;
+}
+
+function fieldContainsWord(field, token) {
+  if (!field) return false;
+  const safe = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp('\\b' + safe).test(field);
+}
+
 function getFilteredProducts(products, context) {
   let filtered = products;
 
@@ -100,10 +141,13 @@ function getFilteredProducts(products, context) {
   }
 
   if (state.search.trim()) {
-    const query = state.search.trim().toLowerCase();
-    filtered = filtered.filter((product) => {
-      return product.title.toLowerCase().includes(query) || product.category.toLowerCase().includes(query);
-    });
+    const raw = state.search.trim().toLowerCase();
+    const tokens = raw.split(/\s+/).filter(Boolean);
+    filtered = filtered
+      .map((product) => ({ product, score: scoreProductMatch(product, tokens) }))
+      .filter((entry) => entry.score >= 0)
+      .sort((a, b) => a.score - b.score)
+      .map((entry) => entry.product);
   }
 
   if (state.sort === 'az') {
@@ -222,6 +266,7 @@ function renderSearchResults(products, resultsContainer) {
   }
 
   const query = state.search.trim().toLowerCase();
+  const tokens = query.split(/\s+/).filter(Boolean);
   resultsContainer.innerHTML = '';
   resultsContainer.classList.remove('is-visible');
 
@@ -229,9 +274,12 @@ function renderSearchResults(products, resultsContainer) {
     return;
   }
 
-  const matches = products.filter((product) => {
-    return product.title.toLowerCase().includes(query) || product.category.toLowerCase().includes(query);
-  }).slice(0, 6);
+  const matches = products
+    .map((product) => ({ product, score: scoreProductMatch(product, tokens) }))
+    .filter((entry) => entry.score >= 0)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 6)
+    .map((entry) => entry.product);
 
   if (!matches.length) {
     const empty = document.createElement('div');
@@ -338,14 +386,21 @@ function applyProductTemplateData(products) {
 function bindExistingSearchInputs() {
   const inputs = document.querySelectorAll('[data-search-input]');
   inputs.forEach((input) => {
-    input.addEventListener('input', (event) => {
-      state.search = event.target.value;
-      const context = getPageContext();
-      if (context.category && document.querySelector('.product-grid')) {
-        renderCategoryProducts(window.__PRODUCTS || [], context);
-      }
-      renderHomepageFeatured(window.__PRODUCTS || []);
-    });
+    let timer;
+    const fire = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        state.search = input.value;
+        const context = getPageContext();
+        if (context.category && document.querySelector('.product-grid')) {
+          renderCategoryProducts(window.__PRODUCTS || [], context);
+        }
+        renderHomepageFeatured(window.__PRODUCTS || []);
+        renderSearchResults(window.__PRODUCTS || [], document.querySelector('[data-search-results]'));
+      }, 120);
+    };
+    input.addEventListener('input', fire);
+
     const form = input.closest('form') || input.parentElement;
     if (form && form.tagName === 'FORM') {
       form.addEventListener('submit', (event) => {
@@ -356,6 +411,7 @@ function bindExistingSearchInputs() {
           renderCategoryProducts(window.__PRODUCTS || [], context);
         }
         renderHomepageFeatured(window.__PRODUCTS || []);
+        renderSearchResults(window.__PRODUCTS || [], document.querySelector('[data-search-results]'));
       });
     }
   });
