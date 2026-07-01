@@ -588,7 +588,11 @@ function bindExistingSearchInputs() {
           renderCategoryProducts(window.__PRODUCTS || [], context);
         }
         renderHomepageFeatured(window.__PRODUCTS || []);
-        renderSearchResults(window.__PRODUCTS || [], document.querySelector('[data-search-results]'));
+        // Render dropdown next to the input that was typed in (not just first one on the page)
+        const container = input.closest('.site-search, .mobile-search-overlay, .product-filter, form') || input.parentElement;
+        let target = container ? container.querySelector('[data-search-results]') : null;
+        if (!target) target = document.querySelector('[data-search-results]');
+        renderSearchResults(window.__PRODUCTS || [], target);
       }, 120);
     };
     input.addEventListener('input', fire);
@@ -603,7 +607,10 @@ function bindExistingSearchInputs() {
           renderCategoryProducts(window.__PRODUCTS || [], context);
         }
         renderHomepageFeatured(window.__PRODUCTS || []);
-        renderSearchResults(window.__PRODUCTS || [], document.querySelector('[data-search-results]'));
+        const container = input.closest('.site-search, .mobile-search-overlay, .product-filter, form') || input.parentElement;
+        let target = container ? container.querySelector('[data-search-results]') : null;
+        if (!target) target = document.querySelector('[data-search-results]');
+        renderSearchResults(window.__PRODUCTS || [], target);
       });
     }
   });
