@@ -652,7 +652,9 @@
 @media (max-width: 720px) {
   /* Desktop hero pieces: hide only on mobile */
   .page-home .hero.hero--image .hero-copy,
-  .page-home .hero.hero--image .hero-overlay {
+  .page-home .hero.hero--image .hero-overlay,
+  .page-home .hero.hero--raw .hero-copy,
+  .page-home .hero.hero--raw .hero-raw-img {
     display: none !important;
   }
   .page-home .hero.hero--image {
@@ -663,6 +665,11 @@
     max-height: none !important;
     padding: 24px 20px 32px !important;
     background-color: #ffffff !important;
+  }
+  .page-home .hero.hero--raw {
+    background-color: #ffffff !important;
+    padding: 24px 20px 32px !important;
+    min-height: 0 !important;
   }
   .mobile-hero-block {
     display: block !important;
